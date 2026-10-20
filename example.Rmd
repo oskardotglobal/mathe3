@@ -1,0 +1,22 @@
+# Hallo test test
+
+Ding dong
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+```{r mpg-plot, fig.width=7, fig.height=4.5, echo=FALSE}
+library(ggplot2)
+
+ggplot(mtcars, aes(x = wt, y = mpg, colour = factor(cyl))) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "Fuel efficiency vs. weight",
+    x = "Weight (1,000 lbs)",
+    y = "Miles per gallon",
+    colour = "Cylinders"
+  ) +
+  theme_minimal()
+```
