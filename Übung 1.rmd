@@ -1,0 +1,23 @@
+---
+title: 'Mathe III: Stochastik und Statistik'
+date: 2026-10-19
+author: 'Oskar Manhart, Justus Halten'
+---
+
+# Übungsblatt 1
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+```
+
+## Aufgabe 1.1 (1)
+
+```{r}
+42 + 8 * 5 - (7 / 3) * (6 / 14) - (-2 * (-2)^(-2) - 2)
+```
+
+## Aufgabe 1.1 (2)
+
+```{r echo=FALSE}
+1 / (1 + (2 / (1 + 1 / 3)))
+```
