@@ -1,0 +1,46 @@
+{
+  "name": "R Markdown",
+  "image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
+
+  "features": {
+    "ghcr.io/rocker-org/devcontainer-features/pandoc:1": {},
+    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+      "packages": "rmarkdown,knitr,tinytex,languageserver,httpgd,tidyverse",
+      "installSystemRequirements": true
+    },
+    "ghcr.io/rocker-org/devcontainer-features/rstudio-server:0": {
+      "singleUser": true,
+      "version": "stable"
+    }
+  },
+
+  "postCreateCommand": "Rscript -e 'tinytex::install_tinytex(force = TRUE)'",
+  "postAttachCommand": {
+    "rstudio-start": "rserver"
+  },
+
+  "forwardPorts": [8787],
+  "portsAttributes": {
+    "8787": {
+      "label": "RStudio IDE",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "REditorSupport.r",
+        "RDebugger.r-debugger"
+      ],
+      "settings": {
+        "r.plot.useHttpgd": true,
+        "r.bracketedPaste": true,
+        "r.rmarkdown.enableCodeLens": true
+      }
+    },
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  }
+}
